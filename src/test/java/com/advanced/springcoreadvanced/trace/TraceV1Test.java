@@ -1,5 +1,6 @@
 package com.advanced.springcoreadvanced.trace;
 
+import com.advanced.springcoreadvanced.trace.v1.TraceV1;
 import org.junit.jupiter.api.Test;
 
 class TraceV1Test {
