@@ -1,7 +1,7 @@
 package com.advanced.springcoreadvanced.v1;
 
 import com.advanced.springcoreadvanced.trace.TraceStatus;
-import com.advanced.springcoreadvanced.trace.TraceV1;
+import com.advanced.springcoreadvanced.trace.v1.TraceV1;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
