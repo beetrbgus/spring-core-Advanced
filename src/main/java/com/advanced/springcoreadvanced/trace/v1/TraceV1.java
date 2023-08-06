@@ -1,5 +1,7 @@
-package com.advanced.springcoreadvanced.trace;
+package com.advanced.springcoreadvanced.trace.v1;
 
+import com.advanced.springcoreadvanced.trace.TraceId;
+import com.advanced.springcoreadvanced.trace.TraceStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -37,11 +39,13 @@ public class TraceV1 {
             log.info("[{}] {}time={}ms"
                     , traceId.getId()
                     , addSpace(COMPLETE_PREFIX, traceId.getLevel())
+                    , traceStatus.getMessage()
                     , resultTimeMs);
         } else {
             log.info("[{}] {}time={}ms ex={}"
                     , traceId.getId()
                     , addSpace(ERROR_PREFIX, traceId.getLevel())
+                    , traceStatus.getMessage()
                     , resultTimeMs
                     , exception.getMessage());
         }
