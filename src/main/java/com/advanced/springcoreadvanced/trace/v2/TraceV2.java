@@ -54,7 +54,7 @@ public class TraceV2 {
                     , traceStatus.getMessage()
                     , resultTimeMs);
         } else {
-            log.info("[{}] {}{}time={}ms ex={}"
+            log.info("[{}] {}{} time={}ms ex={}"
                     , traceId.getId()
                     , addSpace(ERROR_PREFIX, traceId.getLevel())
                     , traceStatus.getMessage()
