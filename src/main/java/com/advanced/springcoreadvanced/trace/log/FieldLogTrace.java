@@ -39,6 +39,7 @@ public class FieldLogTrace implements LogTrace {
     public void exception(TraceStatus traceStatus, Exception e) {
         complete(traceStatus, e);
     }
+
     private void complete(TraceStatus traceStatus, Exception exception) {
         Long stopTimeMs = System.currentTimeMillis();
         long resultTimeMs = stopTimeMs - traceStatus.getStartTimeMs();
