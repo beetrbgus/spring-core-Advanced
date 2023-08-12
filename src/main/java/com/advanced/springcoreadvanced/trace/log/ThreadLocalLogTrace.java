@@ -14,8 +14,10 @@ public class ThreadLocalLogTrace implements LogTrace {
     private ThreadLocal<TraceId> traceIdHolder = new ThreadLocal<>();
 
     private void syncTraceId() {
-        if(traceIdHolder.get() == null) traceIdHolder.set(new TraceId());
-        else traceIdHolder.set(traceIdHolder.get().createNextId());
+        TraceId traceId = traceIdHolder.get();
+
+        if(traceId == null) traceIdHolder.set(new TraceId());
+        else traceIdHolder.set(traceId.createNextId());
     }
 
     @Override
@@ -63,10 +65,12 @@ public class ThreadLocalLogTrace implements LogTrace {
     }
 
     private void releaseTraceId() {
-        if(traceIdHolder.get().isFirstLevel()) {
-            traceIdHolder = null; // destroy
+        TraceId traceId = traceIdHolder.get();
+
+        if(traceId.isFirstLevel()) {
+            traceIdHolder.remove(); // destroy
         } else  {
-            traceIdHolder.set(traceIdHolder.get().createPreviousId());
+            traceIdHolder.set(traceId.createPreviousId());
         }
     }
 
