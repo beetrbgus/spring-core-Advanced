@@ -46,4 +46,56 @@ public class ContextV1Test {
         ContextV1 contextV2 = new ContextV1(strategy2);
         contextV2.execute();
     }
+
+    @Test
+    void strategyV2() {
+        Strategy strategy1 = new Strategy() {
+            @Override
+            public void call() {
+                log.info("비즈니스 로직 1 실행");
+            }
+        };
+        ContextV1 context1 = new ContextV1(strategy1);
+        context1.execute();
+        log.info("strategyLogic1 = {}", strategy1.getClass());
+
+        Strategy strategy2 = new Strategy() {
+            @Override
+            public void call() {
+                log.info("비즈니스 로직 2 실행");
+            }
+        };
+        ContextV1 context2 = new ContextV1(strategy2);
+        log.info("strategyLogic2 = {}", strategy2.getClass());
+        context2.execute();
+    }
+
+    @Test
+    void strategyV3() {
+        ContextV1 context1 = new ContextV1(new Strategy() {
+            @Override
+            public void call() {
+                log.info("비즈니스 로직 1 실행");
+            }
+        });
+        context1.execute();
+
+        ContextV1 context2 = new ContextV1(new Strategy() {
+            @Override
+            public void call() {
+                log.info("비즈니스 로직 2 실행");
+            }
+        });
+        context2.execute();
+    }
+
+    @Test
+    void strategyV4() {
+        // 메서드가 한개만 있을 때 람다를 사용할 수 있음
+        ContextV1 context1 = new ContextV1(() -> log.info("비즈니스 로직 1 실행"));
+        context1.execute();
+
+        ContextV1 context2 = new ContextV1(() -> log.info("비즈니스 로직 2 실행"));
+        context2.execute();
+    }
 }
