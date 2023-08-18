@@ -1,4 +1,4 @@
-package com.advanced.springcoreadvanced.v1;
+package com.advanced.springcoreadvanced.trace.v1;
 
 import com.advanced.springcoreadvanced.trace.TraceStatus;
 import com.advanced.springcoreadvanced.trace.v1.TraceV1;
