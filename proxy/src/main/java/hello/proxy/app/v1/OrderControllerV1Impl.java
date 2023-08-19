@@ -1,8 +1,6 @@
 package hello.proxy.app.v1;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 public class OrderControllerV1Impl implements OrderControllerV1 {
