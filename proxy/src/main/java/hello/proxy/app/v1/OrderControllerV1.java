@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ResponseBody
 public interface OrderControllerV1 {
 
-    @GetMapping("/p1/request")
+    @GetMapping("/v1/request")
     String request(@RequestParam("itemId") String itemId);
 
-    @GetMapping("/p1/no-log")
+    @GetMapping("/v1/no-log")
     String noLog();
 }

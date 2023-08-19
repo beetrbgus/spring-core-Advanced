@@ -6,8 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
-//@Import(AppV1Config.class)
-@Import(AppV2Config.class)
+@Import(value = {AppV1Config.class, AppV2Config.class})
 @SpringBootApplication(scanBasePackages = "hello.proxy.app")
 public class ProxyApplication {
 
